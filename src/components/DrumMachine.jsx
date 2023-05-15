@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Key from "./Key";
 
 const FILES = [
   {
@@ -58,14 +59,13 @@ const FILES = [
 ];
 
 function DrumMachine(props) {
-  const [items, setItems] = useState(FILES);
   const [display, setDisplay] = useState("Press a key");
 
   return (
     <div>
       <div className="flex-container">
-        {items.map((item, i) => (
-          <p key={i}>{item.keyTrigger}</p>
+        {FILES.map((item) => (
+          <Key audio={item} setDisplay={setDisplay} />
         ))}
       </div>
       <h3 id="display" className="text-center py-2">
